@@ -22,7 +22,9 @@ class _$AuthStateTearOff {
       bool errorUsername = false,
       bool errorPassword = false,
       bool showPassword = false,
-      String errorMessage = '',
+      String errorMsgSubdomain = '',
+      String errorMsgUsername = '',
+      String errorMsgPassword = '',
       String subdomain = '',
       String username = '',
       String password = ''}) {
@@ -32,7 +34,9 @@ class _$AuthStateTearOff {
       errorUsername: errorUsername,
       errorPassword: errorPassword,
       showPassword: showPassword,
-      errorMessage: errorMessage,
+      errorMsgSubdomain: errorMsgSubdomain,
+      errorMsgUsername: errorMsgUsername,
+      errorMsgPassword: errorMsgPassword,
       subdomain: subdomain,
       username: username,
       password: password,
@@ -50,7 +54,9 @@ mixin _$AuthState {
   bool get errorUsername => throw _privateConstructorUsedError;
   bool get errorPassword => throw _privateConstructorUsedError;
   bool get showPassword => throw _privateConstructorUsedError;
-  String get errorMessage => throw _privateConstructorUsedError;
+  String get errorMsgSubdomain => throw _privateConstructorUsedError;
+  String get errorMsgUsername => throw _privateConstructorUsedError;
+  String get errorMsgPassword => throw _privateConstructorUsedError;
   String get subdomain => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
@@ -70,7 +76,9 @@ abstract class $AuthStateCopyWith<$Res> {
       bool errorUsername,
       bool errorPassword,
       bool showPassword,
-      String errorMessage,
+      String errorMsgSubdomain,
+      String errorMsgUsername,
+      String errorMsgPassword,
       String subdomain,
       String username,
       String password});
@@ -91,7 +99,9 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object? errorUsername = freezed,
     Object? errorPassword = freezed,
     Object? showPassword = freezed,
-    Object? errorMessage = freezed,
+    Object? errorMsgSubdomain = freezed,
+    Object? errorMsgUsername = freezed,
+    Object? errorMsgPassword = freezed,
     Object? subdomain = freezed,
     Object? username = freezed,
     Object? password = freezed,
@@ -117,9 +127,17 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.showPassword
           : showPassword // ignore: cast_nullable_to_non_nullable
               as bool,
-      errorMessage: errorMessage == freezed
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
+      errorMsgSubdomain: errorMsgSubdomain == freezed
+          ? _value.errorMsgSubdomain
+          : errorMsgSubdomain // ignore: cast_nullable_to_non_nullable
+              as String,
+      errorMsgUsername: errorMsgUsername == freezed
+          ? _value.errorMsgUsername
+          : errorMsgUsername // ignore: cast_nullable_to_non_nullable
+              as String,
+      errorMsgPassword: errorMsgPassword == freezed
+          ? _value.errorMsgPassword
+          : errorMsgPassword // ignore: cast_nullable_to_non_nullable
               as String,
       subdomain: subdomain == freezed
           ? _value.subdomain
@@ -149,7 +167,9 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       bool errorUsername,
       bool errorPassword,
       bool showPassword,
-      String errorMessage,
+      String errorMsgSubdomain,
+      String errorMsgUsername,
+      String errorMsgPassword,
       String subdomain,
       String username,
       String password});
@@ -171,7 +191,9 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? errorUsername = freezed,
     Object? errorPassword = freezed,
     Object? showPassword = freezed,
-    Object? errorMessage = freezed,
+    Object? errorMsgSubdomain = freezed,
+    Object? errorMsgUsername = freezed,
+    Object? errorMsgPassword = freezed,
     Object? subdomain = freezed,
     Object? username = freezed,
     Object? password = freezed,
@@ -197,9 +219,17 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.showPassword
           : showPassword // ignore: cast_nullable_to_non_nullable
               as bool,
-      errorMessage: errorMessage == freezed
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
+      errorMsgSubdomain: errorMsgSubdomain == freezed
+          ? _value.errorMsgSubdomain
+          : errorMsgSubdomain // ignore: cast_nullable_to_non_nullable
+              as String,
+      errorMsgUsername: errorMsgUsername == freezed
+          ? _value.errorMsgUsername
+          : errorMsgUsername // ignore: cast_nullable_to_non_nullable
+              as String,
+      errorMsgPassword: errorMsgPassword == freezed
+          ? _value.errorMsgPassword
+          : errorMsgPassword // ignore: cast_nullable_to_non_nullable
               as String,
       subdomain: subdomain == freezed
           ? _value.subdomain
@@ -226,7 +256,9 @@ class _$_AuthState implements _AuthState {
       this.errorUsername = false,
       this.errorPassword = false,
       this.showPassword = false,
-      this.errorMessage = '',
+      this.errorMsgSubdomain = '',
+      this.errorMsgUsername = '',
+      this.errorMsgPassword = '',
       this.subdomain = '',
       this.username = '',
       this.password = ''});
@@ -248,7 +280,13 @@ class _$_AuthState implements _AuthState {
   final bool showPassword;
   @JsonKey(defaultValue: '')
   @override
-  final String errorMessage;
+  final String errorMsgSubdomain;
+  @JsonKey(defaultValue: '')
+  @override
+  final String errorMsgUsername;
+  @JsonKey(defaultValue: '')
+  @override
+  final String errorMsgPassword;
   @JsonKey(defaultValue: '')
   @override
   final String subdomain;
@@ -261,7 +299,7 @@ class _$_AuthState implements _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(isLoading: $isLoading, errorSubdomain: $errorSubdomain, errorUsername: $errorUsername, errorPassword: $errorPassword, showPassword: $showPassword, errorMessage: $errorMessage, subdomain: $subdomain, username: $username, password: $password)';
+    return 'AuthState(isLoading: $isLoading, errorSubdomain: $errorSubdomain, errorUsername: $errorUsername, errorPassword: $errorPassword, showPassword: $showPassword, errorMsgSubdomain: $errorMsgSubdomain, errorMsgUsername: $errorMsgUsername, errorMsgPassword: $errorMsgPassword, subdomain: $subdomain, username: $username, password: $password)';
   }
 
   @override
@@ -283,9 +321,15 @@ class _$_AuthState implements _AuthState {
             (identical(other.showPassword, showPassword) ||
                 const DeepCollectionEquality()
                     .equals(other.showPassword, showPassword)) &&
-            (identical(other.errorMessage, errorMessage) ||
+            (identical(other.errorMsgSubdomain, errorMsgSubdomain) ||
                 const DeepCollectionEquality()
-                    .equals(other.errorMessage, errorMessage)) &&
+                    .equals(other.errorMsgSubdomain, errorMsgSubdomain)) &&
+            (identical(other.errorMsgUsername, errorMsgUsername) ||
+                const DeepCollectionEquality()
+                    .equals(other.errorMsgUsername, errorMsgUsername)) &&
+            (identical(other.errorMsgPassword, errorMsgPassword) ||
+                const DeepCollectionEquality()
+                    .equals(other.errorMsgPassword, errorMsgPassword)) &&
             (identical(other.subdomain, subdomain) ||
                 const DeepCollectionEquality()
                     .equals(other.subdomain, subdomain)) &&
@@ -305,7 +349,9 @@ class _$_AuthState implements _AuthState {
       const DeepCollectionEquality().hash(errorUsername) ^
       const DeepCollectionEquality().hash(errorPassword) ^
       const DeepCollectionEquality().hash(showPassword) ^
-      const DeepCollectionEquality().hash(errorMessage) ^
+      const DeepCollectionEquality().hash(errorMsgSubdomain) ^
+      const DeepCollectionEquality().hash(errorMsgUsername) ^
+      const DeepCollectionEquality().hash(errorMsgPassword) ^
       const DeepCollectionEquality().hash(subdomain) ^
       const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(password);
@@ -323,7 +369,9 @@ abstract class _AuthState implements AuthState {
       bool errorUsername,
       bool errorPassword,
       bool showPassword,
-      String errorMessage,
+      String errorMsgSubdomain,
+      String errorMsgUsername,
+      String errorMsgPassword,
       String subdomain,
       String username,
       String password}) = _$_AuthState;
@@ -339,7 +387,11 @@ abstract class _AuthState implements AuthState {
   @override
   bool get showPassword => throw _privateConstructorUsedError;
   @override
-  String get errorMessage => throw _privateConstructorUsedError;
+  String get errorMsgSubdomain => throw _privateConstructorUsedError;
+  @override
+  String get errorMsgUsername => throw _privateConstructorUsedError;
+  @override
+  String get errorMsgPassword => throw _privateConstructorUsedError;
   @override
   String get subdomain => throw _privateConstructorUsedError;
   @override

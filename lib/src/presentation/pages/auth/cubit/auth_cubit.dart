@@ -15,12 +15,24 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthState());
 
+  void setSubdomain(String value) {
+    emit(
+      state.copyWith(
+        subdomain: value,
+        errorUsername: false,
+        errorPassword: false,
+        errorSubdomain: false,
+      ),
+    );
+  }
+
   void setUsername(String value) {
     emit(
       state.copyWith(
         username: value,
         errorUsername: false,
         errorPassword: false,
+        errorSubdomain: false,
       ),
     );
   }
@@ -30,6 +42,7 @@ class AuthCubit extends Cubit<AuthState> {
       password: value,
       errorUsername: false,
       errorPassword: false,
+      errorSubdomain: false,
     ));
   }
 
@@ -40,19 +53,30 @@ class AuthCubit extends Cubit<AuthState> {
   void setLoading(bool value, {String? message, bool error = false}) {
     emit(state.copyWith(
       isLoading: value,
-      errorMessage: message ?? '',
+      errorMsgSubdomain: message ?? '',
+      errorMsgUsername: message ?? '',
+      errorMsgPassword: message ?? '',
       errorUsername: error,
       errorPassword: error,
+      errorSubdomain: error,
     ));
   }
 
   void setError({
-    required String message,
+    required String subdomainErrorText,
+    required String usernameErrorText,
+    required String passwordErrorText,
+    required bool errorSubdomain,
+    required bool errorUsername,
     required bool errorPassword,
   }) {
     emit(state.copyWith(
-      errorMessage: message,
+      errorMsgSubdomain: subdomainErrorText,
+      errorMsgUsername: usernameErrorText,
+      errorMsgPassword: passwordErrorText,
       errorPassword: errorPassword,
+      errorSubdomain: errorSubdomain,
+      errorUsername: errorUsername,
     ));
   }
 
@@ -95,7 +119,7 @@ class AuthCubit extends Cubit<AuthState> {
         failure: (d) {
           setLoading(
             false,
-            message: 'Неверные данные авторизации',
+            message: 'To\'g\'ri ma\'lumotlar kiritishingiz lozim!',
             error: true,
           );
         },
@@ -104,7 +128,7 @@ class AuthCubit extends Cubit<AuthState> {
       setLoading(false);
       return AppFlashController.showCheckFlash(
         context,
-       'internet_is_not_available',
+       'Internet bilan bog\'liqlikni tekshiring!',
       );
     }
   }
