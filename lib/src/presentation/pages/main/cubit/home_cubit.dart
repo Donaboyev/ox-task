@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ox_system_task/src/core/di/network_exceptions.dart';
 import 'package:ox_system_task/src/core/utils/connectivity_app.dart';
 import 'package:ox_system_task/src/core/utils/local_source.dart';
-import 'package:ox_system_task/src/data/models/home/product_model.dart';
+import 'package:ox_system_task/src/data/models/home/products_model.dart';
 import 'package:ox_system_task/src/domain/repositories/home_repository.dart';
 import 'package:ox_system_task/src/presentation/components/flashbar.dart';
 
@@ -24,7 +24,6 @@ class HomeCubit extends Cubit<HomeState> {
         ));
 
   Future<void> cubitInit(BuildContext context) async {
-    print('====================> cubit init function');
     final connect = await ConnectivityApp.connectivity();
     if (connect) {
       emit(state.copyWith(isLoading: true));
@@ -37,8 +36,8 @@ class HomeCubit extends Cubit<HomeState> {
             state.copyWith(
               isLoading: false,
               page: 1,
-              totalCount: result.totalCount
-              // products: result.variations ?? <Variations>[],
+              totalCount: result.totalCount ?? 0,
+              products: result.variations ?? <Variations>[],
             ),
           );
         },
@@ -71,7 +70,7 @@ class HomeCubit extends Cubit<HomeState> {
       success: (result) {
         emit(state.copyWith(
           isFetchPaginationLoading: false,
-          // products: state.products + (result.variations ?? <Variations>[]),
+          products: state.products + (result.variations ?? <Variations>[]),
           page: state.page + 1,
         ));
       },

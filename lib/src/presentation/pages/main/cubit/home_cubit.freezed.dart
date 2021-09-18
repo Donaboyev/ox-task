@@ -18,11 +18,13 @@ class _$HomeStateTearOff {
 
   _HomeState call(
       {bool isLoading = true,
+      List<Variations> products = const [],
       int page = 0,
       int totalCount = 0,
       bool isFetchPaginationLoading = false}) {
     return _HomeState(
       isLoading: isLoading,
+      products: products,
       page: page,
       totalCount: totalCount,
       isFetchPaginationLoading: isFetchPaginationLoading,
@@ -36,6 +38,7 @@ const $HomeState = _$HomeStateTearOff();
 /// @nodoc
 mixin _$HomeState {
   bool get isLoading => throw _privateConstructorUsedError;
+  List<Variations> get products => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   int get totalCount => throw _privateConstructorUsedError;
   bool get isFetchPaginationLoading => throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
+      List<Variations> products,
       int page,
       int totalCount,
       bool isFetchPaginationLoading});
@@ -67,6 +71,7 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? products = freezed,
     Object? page = freezed,
     Object? totalCount = freezed,
     Object? isFetchPaginationLoading = freezed,
@@ -76,6 +81,10 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      products: products == freezed
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Variations>,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -100,6 +109,7 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   $Res call(
       {bool isLoading,
+      List<Variations> products,
       int page,
       int totalCount,
       bool isFetchPaginationLoading});
@@ -117,6 +127,7 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? products = freezed,
     Object? page = freezed,
     Object? totalCount = freezed,
     Object? isFetchPaginationLoading = freezed,
@@ -126,6 +137,10 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      products: products == freezed
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Variations>,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -147,6 +162,7 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
   const _$_HomeState(
       {this.isLoading = true,
+      this.products = const [],
       this.page = 0,
       this.totalCount = 0,
       this.isFetchPaginationLoading = false});
@@ -154,6 +170,9 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
   @JsonKey(defaultValue: true)
   @override
   final bool isLoading;
+  @JsonKey(defaultValue: const [])
+  @override
+  final List<Variations> products;
   @JsonKey(defaultValue: 0)
   @override
   final int page;
@@ -166,7 +185,7 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState(isLoading: $isLoading, page: $page, totalCount: $totalCount, isFetchPaginationLoading: $isFetchPaginationLoading)';
+    return 'HomeState(isLoading: $isLoading, products: $products, page: $page, totalCount: $totalCount, isFetchPaginationLoading: $isFetchPaginationLoading)';
   }
 
   @override
@@ -175,6 +194,7 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
     properties
       ..add(DiagnosticsProperty('type', 'HomeState'))
       ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('products', products))
       ..add(DiagnosticsProperty('page', page))
       ..add(DiagnosticsProperty('totalCount', totalCount))
       ..add(DiagnosticsProperty(
@@ -188,6 +208,9 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
             (identical(other.isLoading, isLoading) ||
                 const DeepCollectionEquality()
                     .equals(other.isLoading, isLoading)) &&
+            (identical(other.products, products) ||
+                const DeepCollectionEquality()
+                    .equals(other.products, products)) &&
             (identical(other.page, page) ||
                 const DeepCollectionEquality().equals(other.page, page)) &&
             (identical(other.totalCount, totalCount) ||
@@ -203,6 +226,7 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(isLoading) ^
+      const DeepCollectionEquality().hash(products) ^
       const DeepCollectionEquality().hash(page) ^
       const DeepCollectionEquality().hash(totalCount) ^
       const DeepCollectionEquality().hash(isFetchPaginationLoading);
@@ -216,12 +240,15 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {bool isLoading,
+      List<Variations> products,
       int page,
       int totalCount,
       bool isFetchPaginationLoading}) = _$_HomeState;
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
+  @override
+  List<Variations> get products => throw _privateConstructorUsedError;
   @override
   int get page => throw _privateConstructorUsedError;
   @override

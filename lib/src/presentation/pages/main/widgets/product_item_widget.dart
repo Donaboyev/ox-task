@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ox_system_task/src/data/models/home/product_model.dart';
+import 'package:ox_system_task/src/data/models/home/products_model.dart';
 import 'package:ox_system_task/src/presentation/theme/app_colors.dart';
 
 class ProductItemWidget extends StatelessWidget {
-  final ProductModel product;
+  final Variations product;
   final Function()? onTap;
 
   const ProductItemWidget({
@@ -23,7 +23,7 @@ class ProductItemWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                '${product.totalCount}',
+                '${product.variation?.name}',
                 style: TextStyle(
                   color: AppColors.blue,
                   fontWeight: FontWeight.w600,
