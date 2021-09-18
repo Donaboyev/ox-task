@@ -1,31 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:ox_system_task/src/app.dart';
+import 'package:ox_system_task/src/core/di/http_service.dart';
+import 'package:ox_system_task/src/core/utils/local_source.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await LocalSource.getInstance();
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.indigo),
-      home: MyHomePage(),
-    );
-  }
-}
+  GetIt.I.registerLazySingleton<HttpService>(() => HttpService());
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Hello World'),
-      ),
-    );
-  }
+  runApp(TaskApp());
 }
