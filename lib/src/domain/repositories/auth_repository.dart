@@ -25,7 +25,7 @@ class AuthRepository {
             '$subdomain${Constants.baseUrlPostfix}/security/auth_check',
             options: Options(
               headers: {
-                'security-key': Constants.securityKey,
+                'security-key': Constants.securityKey
               },
               contentType: Headers.formUrlEncodedContentType,
             ),
@@ -36,63 +36,4 @@ class AuthRepository {
       return ApiResult.failure(error: NetworkExceptions.getDioException(e));
     }
   }
-
-// static Future<ApiResult<UserAdmin>> userAdmin(
-//     String userId, String token) async {
-//   try {
-//     final response = await inject<HttpService>().adminDio.get(
-//       '/v1/admin/$userId',
-//       options: Options(
-//         headers: {
-//           'Authorization': 'Bearer $token',
-//           'platform-id': Constants.platformId,
-//         },
-//       ),
-//     );
-//     return ApiResult.success(data: UserAdmin.fromJson(response.data));
-//   } catch (e) {
-//     return ApiResult.failure(error: NetworkExceptions.getDioException(e));
-//   }
-// }
-//
-// static Future<ApiResult<Map>> userAdminUpdate(
-//     String userId,
-//     String token,
-//     UserAdmin userAdmin,
-//     ) async {
-//   try {
-//     final response = await inject<HttpService>().adminDio.put(
-//       '/v1/admin/$userId',
-//       options: Options(
-//         headers: {
-//           'Authorization': 'Bearer $token',
-//           'platform-id': Constants.platformId,
-//         },
-//       ),
-//       data: userAdmin.toJson(),
-//     );
-//     return ApiResult.success(data: response.data);
-//   } catch (e) {
-//     return ApiResult.failure(error: NetworkExceptions.getDioException(e));
-//   }
-// }
-//
-// static Future<ApiResult<Map>> searchCompany(String name) async {
-//   try {
-//     final response = await inject<HttpService>().adminDio.get(
-//       '/v1/company-search',
-//       options: Options(
-//         headers: {
-//           'platform-id': Constants.platformId,
-//         },
-//       ),
-//       queryParameters: {
-//         'name': name,
-//       },
-//     );
-//     return ApiResult.success(data: response.data);
-//   } catch (error) {
-//     return ApiResult.failure(error: NetworkExceptions.getDioException(error));
-//   }
-// }
 }

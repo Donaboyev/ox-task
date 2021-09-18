@@ -5,6 +5,7 @@ import 'package:ox_system_task/src/core/di/http_service.dart';
 import 'package:ox_system_task/src/core/routes/app_router.gr.dart';
 import 'package:ox_system_task/src/core/routes/guards/auth_guard.dart';
 import 'package:ox_system_task/src/presentation/pages/auth/cubit/auth_cubit.dart';
+import 'package:ox_system_task/src/presentation/pages/main/cubit/home_cubit.dart';
 
 final _appRouter = AppRouter(authGuard: AuthGuard());
 
@@ -14,7 +15,8 @@ class TaskApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthCubit>(create: (_) => AuthCubit()),
-        ],
+        BlocProvider<HomeCubit>(create: (_) => HomeCubit()),
+      ],
       child:
       MaterialApp(
         debugShowCheckedModeBanner: false,

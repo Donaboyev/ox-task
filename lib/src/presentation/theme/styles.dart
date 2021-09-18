@@ -36,9 +36,9 @@ class AppStyles {
     fontSize: 22,
   );
 
-  static styHomeTitle(bool isDarkMode) => TextStyle(
+  static styHomeTitle() => TextStyle(
     fontWeight: FontWeight.bold,
-    color: isDarkMode ? AppColors.white : AppColors.grey,
+    color:  AppColors.grey,
     fontFamily: "Gilroy",
     fontSize: 24,
   );

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart' as _i2;
 
 import '../../presentation/pages/auth/auth_page.dart' as _i5;
 import '../../presentation/pages/launcher_page.dart' as _i4;
-import '../../presentation/pages/main/main_page.dart' as _i6;
+import '../../presentation/pages/main/home_page.dart' as _i6;
 import 'guards/auth_guard.dart' as _i3;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -32,10 +32,10 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return _i5.AuthPage();
         }),
-    MainRoute.name: (routeData) => _i1.CupertinoPageX<dynamic>(
+    HomeRoute.name: (routeData) => _i1.CupertinoPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i6.MainPage();
+          return _i6.HomePage();
         })
   };
 
@@ -43,7 +43,7 @@ class AppRouter extends _i1.RootStackRouter {
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(LauncherRoute.name, path: '/'),
         _i1.RouteConfig(AuthRoute.name, path: '/auth-page'),
-        _i1.RouteConfig(MainRoute.name, path: '/main-page', guards: [authGuard])
+        _i1.RouteConfig(HomeRoute.name, path: '/home-page', guards: [authGuard])
       ];
 }
 
@@ -59,8 +59,8 @@ class AuthRoute extends _i1.PageRouteInfo {
   static const String name = 'AuthRoute';
 }
 
-class MainRoute extends _i1.PageRouteInfo {
-  const MainRoute() : super(name, path: '/main-page');
+class HomeRoute extends _i1.PageRouteInfo {
+  const HomeRoute() : super(name, path: '/home-page');
 
-  static const String name = 'MainRoute';
+  static const String name = 'HomeRoute';
 }

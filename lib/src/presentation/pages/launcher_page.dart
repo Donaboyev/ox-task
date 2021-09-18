@@ -16,7 +16,7 @@ class _LauncherPageState extends State<LauncherPage> {
     LocalSource.getSharedPreferences().then((prefs) async {
       String token = prefs.getString(accessToken) ?? '';
       if (token.isNotEmpty) {
-        await AutoRouter.of(context).replace(AuthRoute());
+        await AutoRouter.of(context).replace(HomeRoute());
         return;
       }
       AutoRouter.of(context).replace(AuthRoute());

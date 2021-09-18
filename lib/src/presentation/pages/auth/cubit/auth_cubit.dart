@@ -96,17 +96,8 @@ class AuthCubit extends Cubit<AuthState> {
       await authResult.when(
         success: (data) async {
           await LocalSource.instance.setUser(
-            lastName: data.token,
-            firstName: data.token,
-            companyName: data.token,
-            subDomain: data.token,
+            subdomain: subdomain,
             token: data.token,
-            refreshToken: data.token,
-            companyId: data.expiresAt,
-            userId: data.token,
-            currentShopId: data.token,
-            currentShopName: data.token,
-            imageUrl: data.token
           );
           emit(AuthState(
             isLoading: false,
@@ -114,7 +105,7 @@ class AuthCubit extends Cubit<AuthState> {
             password: '',
             showPassword: false,
           ));
-          await AutoRouter.of(context).replace(MainRoute());
+          await AutoRouter.of(context).replace(HomeRoute());
         },
         failure: (d) {
           setLoading(
@@ -128,7 +119,7 @@ class AuthCubit extends Cubit<AuthState> {
       setLoading(false);
       return AppFlashController.showCheckFlash(
         context,
-       'Internet bilan bog\'liqlikni tekshiring!',
+        'Internet bilan bog\'liqlikni tekshiring!',
       );
     }
   }
