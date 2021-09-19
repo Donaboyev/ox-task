@@ -25,7 +25,6 @@ class CustomCachedImageNetwork extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('================> url: $url');
     return Material(
       color: color,
       child: Ink(

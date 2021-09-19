@@ -58,7 +58,9 @@ class ProductsWidget extends StatelessWidget {
           }
         }
         return ProductItemWidget(
-          onTap: () => onTap!(index),
+          onTap: () {
+            print('==========> index: $index');
+            onTap!(index);},
           product: list[index],
         );
       },

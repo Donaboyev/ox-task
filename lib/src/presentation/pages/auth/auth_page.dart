@@ -133,11 +133,11 @@ class AuthPage extends StatelessWidget {
                                     isPasswordClear) {
                                   cubit.setError(
                                     subdomainErrorText:
-                                        'subdomain kiritilishi shart',
+                                        'субдомен должен быть введен',
                                     usernameErrorText:
-                                        'username kamida 3ta belgidan iborat bo\'lsin',
+                                        'пусть имя пользователя состоит минимум из 3-х символов',
                                     passwordErrorText:
-                                        'parol kamida 5ta belgidan iborat bo\'lsin',
+                                        'пароль должен состоять не менее чем из 5 символов',
                                     errorSubdomain: isSubdomainClear,
                                     errorUsername: isUsernameClear,
                                     errorPassword: isPasswordClear,

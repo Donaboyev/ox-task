@@ -51,8 +51,6 @@ class ProductDetailPage extends StatelessWidget {
                     children: [
                       Text('Название продукта'),
                       SizedBox(height: 12),
-                      Text('Категория'),
-                      SizedBox(height: 12),
                       Text('Артикул'),
                       SizedBox(height: 12),
                       Text('Поставщик'),
@@ -66,9 +64,10 @@ class ProductDetailPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('${product.variation?.name}'),
-                      SizedBox(height: 12),
-                      Text('${product.variation?.productProperties?[0].value}'),
+                      Text(
+                        '${(product.variation?.name ?? '').length > 25 ? (product.variation?.name ?? '').substring(0, 15) : (product.variation?.name ?? '')}',
+                        maxLines: 1,
+                      ),
                       SizedBox(height: 12),
                       Text('${product.variation?.sku}'),
                       SizedBox(height: 12),
