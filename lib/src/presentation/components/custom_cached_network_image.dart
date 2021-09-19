@@ -10,6 +10,7 @@ class CustomCachedImageNetwork extends StatelessWidget {
   final Color imageColor;
   final double placeHolderSize;
   final EdgeInsets padding;
+  final BoxFit fit;
 
   const CustomCachedImageNetwork({
     Key? key,
@@ -19,7 +20,7 @@ class CustomCachedImageNetwork extends StatelessWidget {
     this.color = Colors.transparent,
     this.imageColor = Colors.black,
     this.placeHolderSize = 16,
-    this.padding = EdgeInsets.zero,
+    this.padding = EdgeInsets.zero, this.fit=BoxFit.cover,
   }) : super(key: key);
 
   @override
@@ -35,7 +36,7 @@ class CustomCachedImageNetwork extends StatelessWidget {
           imageUrl: url,
           height: height,
           width: width,
-          fit: BoxFit.cover,
+          fit: fit,
           progressIndicatorBuilder: (context, url, _) => Ink(
             width: double.infinity,
             height: double.infinity,

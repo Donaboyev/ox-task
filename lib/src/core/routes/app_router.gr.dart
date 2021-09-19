@@ -7,9 +7,11 @@
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
+import '../../data/models/home/products_model.dart' as _i8;
 import '../../presentation/pages/auth/auth_page.dart' as _i5;
+import '../../presentation/pages/detail/product_detail_page.dart' as _i6;
 import '../../presentation/pages/launcher_page.dart' as _i4;
-import '../../presentation/pages/main/home_page.dart' as _i6;
+import '../../presentation/pages/main/home_page.dart' as _i7;
 import 'guards/auth_guard.dart' as _i3;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -32,10 +34,16 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return _i5.AuthPage();
         }),
+    ProductDetailRoute.name: (routeData) => _i1.CupertinoPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ProductDetailRouteArgs>();
+          return _i6.ProductDetailPage(key: args.key, product: args.product);
+        }),
     HomeRoute.name: (routeData) => _i1.CupertinoPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i6.HomePage();
+          return _i7.HomePage();
         })
   };
 
@@ -43,6 +51,8 @@ class AppRouter extends _i1.RootStackRouter {
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(LauncherRoute.name, path: '/'),
         _i1.RouteConfig(AuthRoute.name, path: '/auth-page'),
+        _i1.RouteConfig(ProductDetailRoute.name,
+            path: '/product-detail-page', guards: [authGuard]),
         _i1.RouteConfig(HomeRoute.name, path: '/home-page', guards: [authGuard])
       ];
 }
@@ -57,6 +67,23 @@ class AuthRoute extends _i1.PageRouteInfo {
   const AuthRoute() : super(name, path: '/auth-page');
 
   static const String name = 'AuthRoute';
+}
+
+class ProductDetailRoute extends _i1.PageRouteInfo<ProductDetailRouteArgs> {
+  ProductDetailRoute({_i2.Key? key, required _i8.Variations product})
+      : super(name,
+            path: '/product-detail-page',
+            args: ProductDetailRouteArgs(key: key, product: product));
+
+  static const String name = 'ProductDetailRoute';
+}
+
+class ProductDetailRouteArgs {
+  const ProductDetailRouteArgs({this.key, required this.product});
+
+  final _i2.Key? key;
+
+  final _i8.Variations product;
 }
 
 class HomeRoute extends _i1.PageRouteInfo {

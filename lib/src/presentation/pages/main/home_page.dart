@@ -7,6 +7,7 @@ import 'package:ox_system_task/src/data/models/home/products_model.dart';
 import 'package:ox_system_task/src/presentation/components/bottom_sheets/extensions.dart';
 import 'package:ox_system_task/src/presentation/components/bottom_sheets/shared/log_out_bottom_sheet.dart';
 import 'package:ox_system_task/src/presentation/components/home_header_bar.dart';
+import 'package:ox_system_task/src/presentation/pages/detail/product_detail_page.dart';
 import 'package:ox_system_task/src/presentation/pages/main/widgets/products_widget.dart';
 import 'package:ox_system_task/src/core/routes/app_router.gr.dart';
 
@@ -34,7 +35,7 @@ class HomePage extends StatelessWidget {
                       onTap: state.isLoading
                           ? null
                           : () async {
-                              final result = await showSheet(
+                              await showSheet(
                                 context,
                                 child: LogOut(
                                   onTap: () {
@@ -55,6 +56,11 @@ class HomePage extends StatelessWidget {
                             state.isFetchPaginationLoading,
                         onFetchTap: (size) {
                           if (size % 5 >= 0) cubit.fetchProducts();
+                        },
+                        onTap: (index) {
+                          AutoRouter.of(context).navigate(
+                            ProductDetailRoute(product: list[index]),
+                          );
                         },
                       ),
                     ),

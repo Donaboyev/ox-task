@@ -19,77 +19,88 @@ class ProductItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color color = AppColors.greyBD;
-    return AppCard(
-      child: Row(
-        children: [
-          Container(
-            height: 120,
-            width: 80,
-            decoration: BoxDecoration(
-              // border: Border.all(color: AppColors.transparent, width: 1),
-              // borderRadius: BorderRadius.all(
-              //   Radius.circular(6),
-              // ),
-            ),
-            child: CustomCachedImageNetwork(
-              height: 40,
-              width: 40,
-              url: product.variation?.images?[0].urls?.original ?? '',
-              imageColor: color,
-              padding: EdgeInsets.all(1),
+    return Stack(
+      children: [
+        AppCard(
+          child: Row(
+            children: [
+              Container(
+                height: 120,
+                width: 80,
+                child: Hero(
+                  tag: product.variation?.id ?? 0,
+                  child: CustomCachedImageNetwork(
+                    height: 40,
+                    width: 40,
+                    url: product.variation?.images?[0].urls?.original ?? '',
+                    imageColor: color,
+                    padding: EdgeInsets.all(1),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      product.variation?.name ?? '',
+                      style: TextStyle(
+                        color: AppColors.blue,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      product.variation?.barcode ?? '',
+                      style: TextStyle(
+                          color: AppColors.indigo,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 13),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      'Razmer: ${product.variation?.properties?[0].value}',
+                      style: TextStyle(
+                          color: AppColors.indigo,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 13),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      '${AppHelpers.formatNumber(product.newPrice ?? 0)} sum',
+                      softWrap: false,
+                      maxLines: 1,
+                      overflow: TextOverflow.fade,
+                      style: TextStyle(
+                        color: color,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 10),
+              Icon(
+                Icons.keyboard_arrow_right,
+                color: color,
+              ),
+            ],
+          ),
+        ),
+        Positioned.fill(
+          child: Material(
+            color: AppColors.transparent,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(12),
+              onTap: onTap,
             ),
           ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  product.variation?.name ?? '',
-                  style: TextStyle(
-                    color: AppColors.blue,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  product.variation?.barcode ?? '',
-                  style: TextStyle(
-                    color: AppColors.indigo,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 13
-                  ),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  'Razmer: ${product.variation?.properties?[0].value}',
-                  style: TextStyle(
-                    color: AppColors.indigo,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 13
-                  ),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  '${AppHelpers.formatNumber(product.newPrice ?? 0)} sum',
-                  softWrap: false,
-                  maxLines: 1,
-                  overflow: TextOverflow.fade,
-                  style: TextStyle(
-                    color: color,
-                    fontSize: 13,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(width: 10),
-          Icon(Icons.keyboard_arrow_right, size: 16, color: color),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
