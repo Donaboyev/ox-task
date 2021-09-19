@@ -7,7 +7,7 @@ class ListShimmer extends StatelessWidget {
   final double height;
   final int amount;
 
-  const ListShimmer({this.height = 10, this.amount = 5});
+  const ListShimmer({this.height = 80, this.amount = 12});
 
   @override
   Widget build(BuildContext context) {

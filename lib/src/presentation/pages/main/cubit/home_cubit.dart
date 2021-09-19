@@ -54,7 +54,7 @@ class HomeCubit extends Cubit<HomeState> {
     } else {
       return AppFlashController.showCheckFlash(
         context,
-        'Internet bilan bog\'liqlikni tekshiring!',
+        'Проверьте ваше интернет-соединение!',
       );
     }
   }

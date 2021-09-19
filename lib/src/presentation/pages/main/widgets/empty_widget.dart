@@ -11,7 +11,7 @@ class EmptyWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'store_has_no_products_yet',
+            'Сетевое соединение разорвано',
             style: TextStyle(
               color: AppColors.black,
               fontWeight: FontWeight.w600,
@@ -21,7 +21,7 @@ class EmptyWidget extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            'go_to_web_version_to_add_product',
+            'Проверьте ваше интернет-соединение',
             style: TextStyle(
               color: AppColors.greyBD,
               fontWeight: FontWeight.normal,

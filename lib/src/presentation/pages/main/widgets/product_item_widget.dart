@@ -3,7 +3,6 @@ import 'package:ox_system_task/src/core/utils/helpers.dart';
 import 'package:ox_system_task/src/data/models/home/products_model.dart';
 import 'package:ox_system_task/src/presentation/components/app_card.dart';
 import 'package:ox_system_task/src/presentation/components/custom_cached_network_image.dart';
-import 'package:ox_system_task/src/presentation/icons/app_icons.dart';
 import 'package:ox_system_task/src/presentation/theme/app_colors.dart';
 
 class ProductItemWidget extends StatelessWidget {

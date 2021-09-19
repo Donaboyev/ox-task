@@ -110,7 +110,7 @@ class AuthCubit extends Cubit<AuthState> {
         failure: (d) {
           setLoading(
             false,
-            message: 'To\'g\'ri ma\'lumotlar kiritishingiz lozim!',
+            message: 'Вы должны ввести правильную информацию!',
             error: true,
           );
         },
@@ -119,7 +119,7 @@ class AuthCubit extends Cubit<AuthState> {
       setLoading(false);
       return AppFlashController.showCheckFlash(
         context,
-        'Internet bilan bog\'liqlikni tekshiring!',
+        'Проверьте ваше интернет-соединение!',
       );
     }
   }

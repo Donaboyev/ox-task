@@ -6,7 +6,6 @@ import 'package:ox_system_task/src/core/di/injection_extension.dart';
 import 'package:ox_system_task/src/presentation/components/buttons/app_raised_button.dart';
 import 'package:ox_system_task/src/presentation/components/shimmers/make_shimmer.dart';
 import 'package:ox_system_task/src/presentation/components/text_fields/custom_text_field.dart';
-import 'package:ox_system_task/src/presentation/icons/app_icons.dart';
 import 'package:ox_system_task/src/presentation/pages/auth/cubit/auth_cubit.dart';
 import 'package:ox_system_task/src/presentation/theme/app_colors.dart';
 import 'package:ox_system_task/src/presentation/theme/styles.dart';
@@ -18,7 +17,6 @@ class AuthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     final cubit = getCubit<AuthCubit>(context);
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
@@ -39,7 +37,6 @@ class AuthPage extends StatelessWidget {
                     children: [
                       const Align(
                         alignment: Alignment.centerLeft,
-                        // child: BillzLogo(width: 150),
                       ),
                       const SizedBox(height: 120),
                       Text(

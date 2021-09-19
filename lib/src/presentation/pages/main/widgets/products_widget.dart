@@ -29,7 +29,7 @@ class ProductsWidget extends StatelessWidget {
     if (isLoading) {
       return const Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: const ListShimmer(height: 24),
+        child: const ListShimmer(height: 80),
       );
     } else if (list.isEmpty)
       return Center(
@@ -46,7 +46,7 @@ class ProductsWidget extends StatelessWidget {
               return MakeShimmer(
                 child: AppFlatButton(
                   withShimmer: true,
-                  child: Text('Ko\'proq'),
+                  child: Text('Более'),
                   onPressed: isFetchPaginationLoading
                       ? null
                       : () => onFetchTap!(list.length),
