@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -89,5 +91,9 @@ class HomeCubit extends Cubit<HomeState> {
           ));
       },
     );
+  }
+
+  Future<void> logOut(BuildContext context) async {
+    await _localSource.clear();
   }
 }
