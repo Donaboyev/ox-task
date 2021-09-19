@@ -43,7 +43,7 @@ class AuthPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 120),
                       Text(
-                        'Sahifamga kirish',
+                        'Войти в систему',
                         style: AppStyles.styAuthTitle(),
                       ),
                       const SizedBox(height: 16),
@@ -53,8 +53,8 @@ class AuthPage extends StatelessWidget {
                         nextFocus: usernameFocus,
                         inputAction: TextInputAction.next,
                         enabled: !state.isLoading,
-                        labelText: 'Subdomain',
-                        hintText: 'subdomain kiriting',
+                        labelText: 'Субдомен',
+                        hintText: 'example',
                         suffixText: '.ox-sys.com',
                         onChanged: (value) => cubit.setSubdomain(value),
                         errorText: state.errorMsgSubdomain,
@@ -64,8 +64,8 @@ class AuthPage extends StatelessWidget {
                       CustomTextField(
                         inputAction: TextInputAction.next,
                         enabled: !state.isLoading,
-                        labelText: 'Username',
-                        hintText: 'username kiriting',
+                        labelText: 'Имя пользователя',
+                        hintText: 'example',
                         currentFocus: usernameFocus,
                         context: context,
                         nextFocus: passwordFocus,
@@ -84,12 +84,12 @@ class AuthPage extends StatelessWidget {
                       const SizedBox(height: 10),
                       CustomTextField(
                         inputAction: TextInputAction.done,
-                        labelText: 'Parol',
+                        labelText: 'Пароль',
                         currentFocus: passwordFocus,
                         obscureText: !state.showPassword,
                         enabled: !state.isLoading,
                         context: context,
-                        hintText: 'Parolingizni kiriting',
+                        hintText: '*****',
                         onTap: () {
                           if (state.password.isEmpty)
                             cubit.setShowPassword(false);
@@ -115,7 +115,7 @@ class AuthPage extends StatelessWidget {
                         disableColor: AppColors.greyF9,
                         child: MakeShimmer(
                           child: Text(
-                            'Kirish',
+                            'Войти',
                             style: const TextStyle(fontWeight: FontWeight.w500),
                           ),
                           isLoading: state.isLoading,

@@ -39,7 +39,6 @@ class AppStyles {
   static styHomeTitle() => TextStyle(
     fontWeight: FontWeight.bold,
     color:  AppColors.grey,
-    fontFamily: "Gilroy",
     fontSize: 24,
   );
 

@@ -23,7 +23,7 @@ class AppIconButton extends StatelessWidget {
       width: size,
       height: size,
       child: FlatButton(
-        disabledColor: AppColors.shimmerBaseDark,
+        // disabledColor: AppColors.shimmerBaseDark,
         padding: const EdgeInsets.all(0),
         color: color ?? Theme.of(context).cardColor,
         shape: RoundedRectangleBorder(

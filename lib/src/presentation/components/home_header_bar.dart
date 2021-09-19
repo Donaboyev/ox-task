@@ -21,7 +21,7 @@ class HomeHeaderBar extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              'Home',
+              'Продукты',
               style: AppStyles.styHomeTitle(),
             ),
           ),
@@ -30,7 +30,6 @@ class HomeHeaderBar extends StatelessWidget {
             size: 50,
             icon: Icon(
               iconData,
-              size: 18,
               color: AppColors.blue,
             ),
             onPressed: onTap,

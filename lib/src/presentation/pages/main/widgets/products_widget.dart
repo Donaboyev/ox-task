@@ -40,9 +40,9 @@ class ProductsWidget extends StatelessWidget {
       padding: EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 8),
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) {
-        if (list.length >= 5) {
+        if (list.length >= 12) {
           if (index == list.length) {
-            if (!isLoading && page * 5 <= list.length) {
+            if (!isLoading && page * 12 <= list.length) {
               return MakeShimmer(
                 child: AppFlatButton(
                   withShimmer: true,
@@ -63,8 +63,8 @@ class ProductsWidget extends StatelessWidget {
         );
       },
       separatorBuilder: (context, index) => const SizedBox(height: 5),
-      itemCount: page * 5 <= list.length
-          ? list.length >= 5
+      itemCount: page * 12 <= list.length
+          ? list.length >= 12
           ? list.length + 1
           : list.length
           : list.length,

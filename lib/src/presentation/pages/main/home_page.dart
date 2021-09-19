@@ -1,15 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:ox_system_task/src/core/di/injection_extension.dart';
+import 'package:ox_system_task/src/core/routes/app_router.gr.dart';
 import 'package:ox_system_task/src/data/models/home/products_model.dart';
 import 'package:ox_system_task/src/presentation/components/bottom_sheets/extensions.dart';
 import 'package:ox_system_task/src/presentation/components/bottom_sheets/shared/log_out_bottom_sheet.dart';
 import 'package:ox_system_task/src/presentation/components/home_header_bar.dart';
-import 'package:ox_system_task/src/presentation/pages/detail/product_detail_page.dart';
 import 'package:ox_system_task/src/presentation/pages/main/widgets/products_widget.dart';
-import 'package:ox_system_task/src/core/routes/app_router.gr.dart';
 
 import 'cubit/home_cubit.dart';
 

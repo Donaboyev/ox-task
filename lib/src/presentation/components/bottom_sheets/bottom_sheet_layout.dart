@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:ox_system_task/src/presentation/theme/app_colors.dart';
 import 'package:ox_system_task/src/presentation/theme/styles.dart';
 
 class BottomSheetLayout extends StatelessWidget {
@@ -19,7 +20,7 @@ class BottomSheetLayout extends StatelessWidget {
         padding:
         EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: Container(
-          color: Colors.transparent,
+          color: AppColors.transparent,
           child: Container(
             constraints: BoxConstraints(maxHeight: screenHeight * .9),
             padding: padding ?? EdgeInsets.all(20),

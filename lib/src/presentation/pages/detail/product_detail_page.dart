@@ -14,6 +14,8 @@ class ProductDetailPage extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        elevation: 0,
         title: Text('${product.variation?.name}'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),

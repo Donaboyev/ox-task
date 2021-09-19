@@ -55,7 +55,16 @@ class ProductItemWidget extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      product.variation?.barcode ?? '',
+                      'Штрих-код: ${product.variation?.barcode}',
+                      style: TextStyle(
+                        color: AppColors.indigo,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 13,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      'Размер: ${product.variation?.properties?[0].value}',
                       style: TextStyle(
                           color: AppColors.indigo,
                           fontWeight: FontWeight.w400,
@@ -63,15 +72,7 @@ class ProductItemWidget extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      'Razmer: ${product.variation?.properties?[0].value}',
-                      style: TextStyle(
-                          color: AppColors.indigo,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 13),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      '${AppHelpers.formatNumber(product.newPrice ?? 0)} sum',
+                      '${AppHelpers.formatNumber(product.newPrice ?? 0)} UZS',
                       softWrap: false,
                       maxLines: 1,
                       overflow: TextOverflow.fade,

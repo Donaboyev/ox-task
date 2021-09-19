@@ -26,19 +26,19 @@ class LogOut extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           Text(
-            'log_out_your_account',
+            'Вы уверены что хотите выйти с аккаунта?',
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
           AppFlatButton(
             color: AppColors.red,
-            child: Text('yes_get_out'),
+            child: Text('Да, выйти'),
             onPressed: onTap,
           ),
           const SizedBox(height: 15),
           AppFlatButton(
             color: AppColors.grey6F,
-            child: Text('cancellation'),
+            child: Text('Отмена'),
             onPressed: () => AutoRouter.of(context).pop(),
           ),
           const SizedBox(height: 30),

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ox_system_task/src/presentation/icons/app_icons.dart';
 
@@ -19,7 +20,7 @@ class CustomCachedImageNetwork extends StatelessWidget {
     this.url = '',
     this.color = Colors.transparent,
     this.imageColor = Colors.black,
-    this.placeHolderSize = 16,
+    this.placeHolderSize = 80,
     this.padding = EdgeInsets.zero, this.fit=BoxFit.cover,
   }) : super(key: key);
 
@@ -42,11 +43,7 @@ class CustomCachedImageNetwork extends StatelessWidget {
             height: double.infinity,
             padding: const EdgeInsets.all(8.0),
             child: Center(
-              child: Icon(
-                Icons.image,
-                color: imageColor,
-                size: placeHolderSize,
-              ),
+              child: CupertinoActivityIndicator(),
             ),
           ),
           errorWidget: (context, url, error) => Ink(
