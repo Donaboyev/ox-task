@@ -2,15 +2,8 @@
 
 Ox System task by Abbos Donaboyev
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://user-images.githubusercontent.com/56734609/151794214-0e25296c-4031-4197-bac4-61fc601730d6.png" width="300" heigth="630" /> 
+<img src="https://user-images.githubusercontent.com/56734609/151794236-adb3b560-3897-44ce-a0a5-a167971db59d.png" width="300" heigth="630" /> 
+<img src="https://user-images.githubusercontent.com/56734609/151794248-e5496754-31cf-437c-98c8-814f98809645.png" width="300" heigth="630" /> 
+<img src="https://user-images.githubusercontent.com/56734609/151794266-37443f0a-d6b1-4471-a18b-03585c196735.png" width="300" heigth="630" /> 
+<img src="https://user-images.githubusercontent.com/56734609/151794282-f3790bcf-0987-4523-a8a7-54ddee3e33aa.png" width="300" heigth="630" /> 
